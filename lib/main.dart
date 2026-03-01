@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/utils/app_routes.dart';
 
 import 'home/home_screen.dart';
+import 'home/onboarding/onboarding_screen.dart';
+import 'utils/app_routes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,8 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.homeRouteName,
-      routes: {AppRoutes.homeRouteName: (context) => HomeScreen()},
+      initialRoute: AppRoutes.onboardingRouteName,
+      // ✅ set onboarding as initial
+      routes: {
+        AppRoutes.onboardingRouteName: (context) => const OnboardingScreen(),
+        AppRoutes.homeRouteName: (context) => const HomeScreen(),
+      },
     );
   }
 }
